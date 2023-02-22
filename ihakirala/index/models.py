@@ -17,7 +17,7 @@ class IHA(models.Model):
     marka = models.CharField(max_length=140)
     model = models.CharField(max_length=140)
     weight = models.DecimalField("Ağırlık", max_digits=12, decimal_places=0)
-    flight_time = models.DecimalField("Uçuş Süresi", max_digits=12, decimal_places=0)
+    flight_time = models.DecimalField("Uçuş Süresi", max_digits=12, decimal_places=1)
     kategori = models.ForeignKey(KATEGORI, on_delete=models.CASCADE)
 
     # Veriyi ekleyen kullanıcı ID'leri

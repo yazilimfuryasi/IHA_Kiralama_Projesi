@@ -7,7 +7,7 @@
     <!--begin::Tables Widget 2-->
     <div class="card">
       <!--begin::Header-->
-      <div class="card-header border-0 pt-5">
+      <div class="card-header border-0 pt-5 d-flex justify-content-center">
          <h3 class="card-title align-items-start flex-column">
             <span id="tableHeader" class="card-label fw-bolder fs-3 mb-1">İHA LİSTESİ</span>
          </h3>
@@ -17,9 +17,6 @@
 
       <!-- Kayıtlı iha sayısı kontrolü -->
       {% if ihalar|length > 0 %}
-         <div class="container">
-            <h1>İHA Listesi</h1>
-         </div>
          <div class="container">
             <div class="input-group">
                <select onchange="kategori_(this.value);">
