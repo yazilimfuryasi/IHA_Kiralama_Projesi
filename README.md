@@ -57,7 +57,6 @@ _____
 📌 <b>Giriş</b>
 _____
 ![login](https://user-images.githubusercontent.com/84662757/220663143-4e80e498-781f-4c55-9220-dd036f9aac0f.png)
-
 _____
 📌 <b>Kayıt</b>
 _____
@@ -65,30 +64,25 @@ _____
 _____
 📌 <b>Dashboard</b>
 _____
-![dashboard](https://user-images.githubusercontent.com/84662757/220663243-bf371caf-374c-4e38-9eb8-71e8f20d50ae.png)
-
+![dashboard](https://user-images.githubusercontent.com/84662757/220707214-185cc271-f186-4359-a97f-73daa8e5325f.png)
 _____
 📌 <b>İHA Kayıt</b>
 _____
-![iha_kayıt](https://user-images.githubusercontent.com/84662757/220663154-3c24177e-45bc-4419-9be1-a77f7f079522.png)
-
+![kayıt et](https://user-images.githubusercontent.com/84662757/220707695-2f9a9a7f-89da-4056-b49e-5b8402607958.png)
 _____
 📌 <b>İHA Listesi</b>
 _____
-![liste](https://user-images.githubusercontent.com/84662757/220700557-e64824f2-8c7a-404f-8587-d73356e55e2d.png)
-
+![listele](https://user-images.githubusercontent.com/84662757/220706692-1b5d8607-b0cd-4678-95e4-b705ce6b123b.png)
 _____
 📌 <b>İHA Güncelleme, Silme</b>
 _____
-![ihalar](https://user-images.githubusercontent.com/84662757/220663293-927299af-3701-4443-8f2a-21d269f9bc35.png)
-
+![güncelle](https://user-images.githubusercontent.com/84662757/220707393-993519f2-db25-4125-9cc6-638256ec6cc5.png)
 _____
 📌 <b>İHA Sabit Kanat Filtresi</b>
 _____
-![sabit kanat filtre](https://user-images.githubusercontent.com/84662757/220700616-260e35b8-a4d1-479a-a47c-149b8c17a7cf.png)
-
+![sabitkanat](https://user-images.githubusercontent.com/84662757/220706621-e6ec93a5-a2ac-403d-b94e-5f37685c15b0.png)
 _____
 📌 <b>Arama Çubuğu</b>
 _____
-![arama](https://user-images.githubusercontent.com/84662757/220700671-15ab9e74-742f-41b2-b391-7a05b900e819.png)
+![arama](https://user-images.githubusercontent.com/84662757/220706646-87739a7d-f269-41c8-a178-d910d24d8f2f.png)
 _____

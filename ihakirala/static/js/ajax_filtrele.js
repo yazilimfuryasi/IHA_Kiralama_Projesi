@@ -38,10 +38,10 @@ function kategori_(kategori) {
 
       row =
         '<tr><td><p class=' + '"fw-bold d-block fs-7">' + elem['marka'] + '</p></td>'
-        + '<td><p<p class=' + '"fw-bold d-block fs-7">' + elem['model'] + '</p></td>'
-        + '<td><p<p class=' + '"fw-bold d-block fs-7">' + elem['weight'] + ' Kg.</p></td>'
-        + '<td><p<p class=' + '"fw-bold d-block fs-7">' + elem['flight_time'] + ' Saat</p></td>'
-        + '<td><p<p class=' + '"fw-bold d-block fs-7">' + elem['kategori'] + '</p></td>' + '</tr>'
+        + '<td><p class=' + '"fw-bold d-block fs-7">' + elem['model'] + '</p></td>'
+        + '<td><p class=' + '"fw-bold d-block fs-7 text-center">' + elem['weight'] + ' Kg.</p></td>'
+        + '<td><p class=' + '"fw-bold d-block fs-7 text-center">' + elem['flight_time'] + ' Saat</p></td>'
+        + '<td><p class=' + '"fw-bold d-block fs-7">' + elem['kategori'] + '</p></td>' + '</tr>'
       ;
 
       all_rows = all_rows + row;

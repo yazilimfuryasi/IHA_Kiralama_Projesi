@@ -29,8 +29,8 @@
                   
                   <select onchange="search_(this.value);">
                      <option value="" selected disabled>Uçuş Süresi</option>
-                     <option value="descending">Oldest</option>
-                     <option value="ascending">Latest</option>
+                     <option value="descending">Uçuş Süresi Artan</option>
+                     <option value="ascending">Uçuş Süresi Azalan</option>
                   </select>
 
                   <div class="col">
@@ -65,8 +65,8 @@
                   <tr>
                      <td><p class="fw-bold d-block fs-7">{{ iha.marka }}</p></td>
                      <td><p class="fw-bold d-block fs-7">{{ iha.model }}</p></td>
-                     <td><p class="fw-bold d-block fs-7">{{ iha.weight }} Kg.</p></td>
-                     <td><p class="fw-bold d-block fs-7">{{ iha.flight_time }} Saat</p></td>
+                     <td><p class="fw-bold d-block fs-7 text-center">{{ iha.weight }} Kg.</p></td>
+                     <td><p class="fw-bold d-block fs-7 text-center">{{ iha.flight_time }} Saat</p></td>
                      <td><p class="fw-bold d-block fs-7">{{ iha.kategori }}</p></td>
                   </tr>
                {% endfor %}
