@@ -4,13 +4,13 @@
 - [📸 Ekran Görüntüleri](#-ekran-görüntüleri)
 _____
 ### 🛠 Hangi Teknolojiler Kullanıldı?
-- Back end
+- Back-End
     * Python
     * Django
     * Django-Rest Framework
     * JavaScript, Ajax
     * Docker
-- Frond end
+- Front-End
     * Şablon: https://kariyer.baykartech.com/
     * CSS / HTML
     * Bootstrap
