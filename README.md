@@ -42,9 +42,9 @@ Bu adrese gidilip giriş ekranı karşılamalı
 <pre>http://localhost:8000/</pre>
 
 Veritabanını taşıyalım
-<pre>docker-compose run app python3 manage.py migrate</pre>
+<pre>docker-compose run app python3 manage.py makemigrations</pre>
 
-<pre>docker-compose run app python3 manage.py showmigrations</pre>
+<pre>docker-compose run app python3 manage.py migrate</pre>
 
 superuser oluşturulup admin panelinden kategori oluşturulması gerekiyor.
 <pre>docker-compose run app python3 manage.py createsuperuser</pre>
