@@ -1,0 +1,99 @@
+{% extends 'loginbase.html' %}
+{% load static %}
+{% block title %}
+    | BGRemove |
+{% endblock title %}
+
+{% block content %}
+
+<body id="kt_body" class="bg-body">
+    <div class="container mt-3">
+        <div class="d-flex flex-column flex-column-fluid bgi-position-y-bottom position-x-center bgi-no-repeat bgi-size-contain bgi-attachment-fixed" style="background-image: url(https://cdnik.baykartech.com/static/assets/media/illustrations/sigma-1/akinci-hd.jpg">
+         
+        <!--begin::Content-->
+        <div class="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">
+            <!--begin::Logo-->
+            <a href="#" class="mb-12">
+                <img alt="Logo" src="{% static 'img/hr-logo.png'%}" class="h-40px">
+            </a>
+            <!--end::Logo-->
+            <!--begin::Wrapper-->
+            <div class="w-lg-500px bg-body rounded shadow-sm p-10 p-lg-15 mx-auto">
+                <!--begin::Form-->
+                <form class="form w-100 fv-plugins-bootstrap5 fv-plugins-framework" novalidate="novalidate" id="loginForm" method="POST" action="">
+                    {% csrf_token %}
+                    <!--begin::Heading-->
+                    <div class="text-center mb-10">
+                        <!--begin::Title-->
+                        <h1 class="text-dark mb-3">İHA Kiralama Platformu Giriş</h1>
+                        <!--end::Title-->
+                        <!--begin::Link-->
+                        <div class="text-gray-400 fw-bold fs-4">Üye değil misiniz?
+                            <a href="{% url 'register' %}" class="link-primary fw-bolder">Hesap Oluştur</a></div>
+                        <!--end::Link-->
+                        
+                    </div>
+                    <!--begin::Heading-->
+                    <!--begin::Input group-->
+                    <div class="fv-row mb-10 fv-plugins-icon-container">
+                        <!--begin::Label-->
+                        <label class="form-label fs-6 fw-bolder text-dark">Kullanıcı Adı</label>
+                        <!--end::Label-->
+                        <!--begin::Input-->
+                        <input class="form-control form-control-lg form-control-solid" type="text" name="login" autocomplete="off">
+                        <!--end::Input-->
+                        <div class="fv-plugins-message-container invalid-feedback"></div>
+                    </div>
+                    <!--end::Input group-->
+                    <!--begin::Input group-->
+                    <div class="fv-row mb-10 fv-plugins-icon-container">
+                        <!--begin::Wrapper-->
+                        <div class="d-flex flex-stack mb-2">
+                            <!--begin::Label-->
+                            <label class="form-label fw-bolder text-dark fs-6 mb-0">Şifre</label>
+                            <!--end::Label-->
+                            <!--begin::Link-->
+                            <a href="https://kariyer.baykartech.com/tr/hesaplar/password/reset/" class="link-primary fs-6 fw-bolder">Şifremi Unuttum</a>
+                            <!--end::Link-->
+                        </div>
+                        <!--end::Wrapper-->
+                        <!--begin::Input-->
+                        <input class="form-control form-control-lg form-control-solid" type="password" name="password" autocomplete="off" id="id_password">
+                        <!--end::Input-->
+                        <div class="fv-plugins-message-container invalid-feedback"></div>
+                    </div>
+                    {% comment %} <div class="fv-row mb-10 fv-plugins-icon-container d-flex justify-content-center">
+
+                        <div class="g-recaptcha" data-sitekey="6LdhhKUfAAAAAIreH-uXgiW0dnew3N0KRD3F08j0" required="" id="id_captcha" data-widget-uuid="fbd7a5600cd14c67a645b4e199e488f8" data-callback="onSubmit_fbd7a5600cd14c67a645b4e199e488f8" data-size="normal"><div style="width: 304px; height: 78px;"><div><iframe title="reCAPTCHA" src="./İNSAN KAYNAKLARI _ BAYKAR TEKNOLOJİ_files/anchor.html" width="304" height="78" role="presentation" name="a-e766mk5j89lj" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;" src="./İNSAN KAYNAKLARI _ BAYKAR TEKNOLOJİ_files/saved_resource(1).html"></iframe></div>
+                    </div> {% endcomment %}
+                    <!--end::Input group-->
+                    <!--begin::Actions-->
+                    <div class="text-center">
+                        <!--begin::Submit button-->
+                        <button type="submit" id="kt_sign_in_submit" class="btn btn-lg btn-primary w-100 mb-5">
+                            GİRİŞ
+                        </button>
+                        <!--end::Submit button-->
+                        <!--begin::Separator-->
+
+                    </div>
+
+                    <!--end::Actions-->
+
+                </form>
+                <!--end::Form-->
+            </div>
+            <!--end::Wrapper-->
+        </div>
+    </div>
+    <!--end::Content-->
+
+                <div class="d-flex flex-center flex-column-auto p-10">
+        <!--begin::Links-->
+        <div class="d-flex align-items-center fw-bold fs-6">
+            
+        </div>
+        <!--end::Links-->
+    </div>
+    </div>
+{% endblock content %}

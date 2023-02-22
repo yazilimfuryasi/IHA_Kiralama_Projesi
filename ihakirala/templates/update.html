@@ -1,0 +1,105 @@
+{% extends 'dashboardbase.html' %}
+{% load static %}
+{% block title %} İHA YÖNET | {% endblock title %}
+
+
+{% block content %}
+<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+    <div class="container-fluid" id="kt_content_container">
+        <div class="col-xl-12">
+            <div class="card card-xl-stretch mb-xl-8">
+                <div class="card-header d-flex justify-content-center">
+                    <div>
+                        <h3 class="mt-10">Kayıtlı İnsansız Hava Araçlarım</h3>
+                    </div>
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <div class="table-responsive">
+                        <div id="kt_datatable4_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+                            <div id="durum" class="dataTables_filter">
+                                <table id="kt_datatable4" class="table table-row-bordered gy-5 gs-7 dataTable no-footer" aria-describedby="kt_datatable4_info" style="width: 1237px;">
+                                    <thead>
+                                        <tr class="fw-bold fs-6 text-gray-800">
+                                            <th class="sorting_disabled" tabindex="0" aria-controls="kt_datatable4" rowspan="1" colspan="1" style="width: 140.25px;" aria-sort="descending">
+                                                <span class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg">Marka</span>
+                                            </th>
+                                            <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 140.5px;">
+                                                <span class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg">Model</span>
+                                            </th>
+                                            <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 40.5px;">
+                                                <span class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg">Ağırlık</span>
+                                            </th>
+                                            <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 40.5px;">
+                                                <span class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg">Uçuş Süresi</span>
+                                            </th>
+                                            <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 139.5px;">
+                                                <span class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg">Kategori</span>
+                                            </th>
+                                            <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 50px;">
+                                                <span class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg">Düzenle</span>
+                                            </th>
+                                            <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 50px;">
+                                                <span class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg">Sil</span>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <form method="POST">
+                                            {% csrf_token %}
+                                            {% for i in ihalar %}
+                                                <tr id="{{i.id}}">
+                                                    <td><input type="text" class="form-control form-control-solid" id="id_marka" required name="marka" value="{{ i.marka }}"></td>
+                                                    <td><input type="text" class="form-control form-control-solid" id="id_model" required name="model" value="{{ i.model }}"></td>
+                                                    <td><input type="number" class="form-control form-control-solid" id="id_weight" required name="weight" value="{{ i.weight }}"></td>
+                                                    <td><input type="number" class="form-control form-control-solid" id="id_flight_time" required name="flight_time" value="{{ i.flight_time }}"></td>
+                                                    <td>
+                                                        <select name="kategori" id="kategori" class="form-control form-control-solid">
+                                                            {% for sec in kategoriler %}
+                                                                {% if i.kategori == sec %}
+                                                                    <option value="{{sec.kategori}}" selected>{{sec.kategori}}</option>
+                                                                {% else %}
+                                                                    <option value="{{sec.kategori}}">{{sec.kategori}}</option>
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                        </select>
+                                                    </td>
+                                                    <td  class="d-flex justify-content-center">
+                                                        <button class="btn btn-info" type="button" id="update" onclick="iha_update( '{{ i.id }}' )" name="update" value="{{i.id}}"> 
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+                                                                <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
+                                                                <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
+                                                                </svg>
+                                                        </button>
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-danger" type="button" id="delete" onclick="iha_delete( '{{ i.id }}' )" name="delete"> 
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                                                                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+                                                            </svg>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+                                            
+                                        </form>
+                                    </tbody>
+                                </table>
+                                <div class="dataTables_info" id="kt_datatable4_info" role="status" aria-live="polite">
+                                    {{ ihalar|length }} kayıt gösteriliyor
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+
+{% block scripts %}
+<script src="{% static 'js/ajax_update.js'%}"></script>
+<script src="{% static 'js/ajax_delete.js'%}"></script>
+{% endblock %}

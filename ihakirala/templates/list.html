@@ -1,0 +1,93 @@
+{% extends 'dashboardbase.html' %}
+{% load static %}
+{% block title %} İHA LİSTELE | {% endblock title %}
+
+{% block content %}
+<div class="" id="">
+    <!--begin::Tables Widget 2-->
+    <div class="card">
+      <!--begin::Header-->
+      <div class="card-header border-0 pt-5">
+         <h3 class="card-title align-items-start flex-column">
+            <span id="tableHeader" class="card-label fw-bolder fs-3 mb-1">İHA LİSTESİ</span>
+         </h3>
+      </div>
+      <!--end::Header-->
+      <!--begin::Body-->
+
+      <!-- Kayıtlı iha sayısı kontrolü -->
+      {% if ihalar|length > 0 %}
+         <div class="container">
+            <h1>İHA Listesi</h1>
+         </div>
+         <div class="container">
+            <div class="input-group">
+               <select onchange="kategori_(this.value);">
+               <option value="" selected disabled>Kategori</option>
+               {% for i in kategori %}
+                  <option value="{{ i.kategori }}">{{ i.kategori }}</option>
+               {% endfor %}
+               </select>
+               
+               <select onchange="search_(this.value);">
+                  <option value="" selected disabled>Uçuş Süresi</option>
+                  <option value="descending">Oldest</option>
+                  <option value="ascending">Latest</option>
+               </select>
+
+               <div class="d-flex justify-content-center" style="margin-left: 25px;">
+                  <div class="d-flex align-items-center  position-relative my-1">
+                     <span class="svg-icon svg-icon-1 position-absolute ms-6">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1" transform="rotate(45 17.0365 15.1223)" fill="currentColor"></rect>
+                              <path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="currentColor"></path>
+                        </svg>
+                     </span>
+                     <input type="text" id="search-input" data-kt-user-table-filter="search" class="form-control form-control-solid w-250px ps-14" placeholder="İHA Ara">
+                  </div>
+               </div>
+               <button class="btn btn-outline-primary" onClick="find_location();" type="button">Search</button>
+            </div>
+         </div>
+         <div class="container">
+            <table class="table" id="myTable">
+               <thead class="table table-row-bordered table-row-dashed gy-4 align-middle fw-bolder">
+                  <tr>
+                     <th class="p-0">Marka</th>
+                     <th class="pl-10">Model</th>
+                     <th class="pl-10">Ağırlık</th>
+                     <th class="pl-10">Uçuş Süresi</th>
+                     <th class="pl-10 w-10">Kategori</th>
+                  </tr>
+               </thead>
+               <tbody>
+               {% for iha in ihalar %}
+                  <tr>
+                     <td><p class="fw-bold d-block fs-7">{{ iha.marka }}</p></td>
+                     <td><p class="fw-bold d-block fs-7">{{ iha.model }}</p></td>
+                     <td><p class="fw-bold d-block fs-7">{{ iha.weight }} Kg.</p></td>
+                     <td><p class="fw-bold d-block fs-7">{{ iha.flight_time }} Saat</p></td>
+                     <td><p class="fw-bold d-block fs-7">{{ iha.kategori }}</p></td>
+                  </tr>
+               {% endfor %}
+               </tbody>
+            </table>
+      {% else %}
+         <div class="d-flex justify-content-center">
+            <div class="alert alert-primary" role="alert">
+               Kayıtlı İHA Yok
+            </div>
+         </div>
+      {% endif %}
+       </div>
+      </div>
+       <!--end::Body-->
+    </div>
+    <!--end::Tables Widget 2-->
+ </div>
+
+{% endblock content %}
+
+{% block scripts %}
+    <script src="{% static 'js/ajax_filtrele.js'%}"></script>
+{% endblock %}

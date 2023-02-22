@@ -1,0 +1,67 @@
+{% extends 'dashboardbase.html' %}
+{% load static %}
+{% block title %} İHA KAYIT ET | {% endblock title %}
+
+{% block content %}
+    <div class="toolbar py-5 py-lg-5" id="kt_toolbar">
+        <div id="kt_toolbar_container" class="container-fluid py-5">
+            <div class="row gy-0 gx-10 ">
+                <div class="col-xl-12  d-flex justify-content-center">
+                    <div class="card card-xl-stretch bg-body border-0">
+                        <div class="card-body pt-5 mb-xl-9 position-relative" id="durum">
+                            <div class="d-flex flex-stack">
+                                <h1 class="fw-bolder text-gray-800 m-0">İHA KAYIT ET</h1>
+                            </div>
+                            <form method="POST">
+                                {% csrf_token %}
+                                <div class="row" style="margin-top: 25px;">
+                                    <div class="col-md-4 mb-10">
+                                        <label class="fs-5 fw-bold mb-3">Marka</label>
+                                        <input type="text" class="form-control form-control-solid" id="id_marka" required name="marka">
+                                    </div>
+                                    <div class="col-md-4 mb-10" style="margin-left: 100px;">
+                                        <label class="fs-5 fw-bold mb-3">Model</label>
+                                        <input type="text" class="form-control form-control-solid" id="id_model" required name="model">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 mb-10">
+                                        <label class="fs-5 fw-bold mb-3">Ağırlık</label>
+                                        <input type="number" class="form-control form-control-solid" id="id_weight" required name="weight">
+                                    </div>
+                                    <div class="col-md-4 mb-10" style="margin-left: 100px;">
+                                        <label class="fs-5 fw-bold mb-3">Uçuş Süresi</label>
+                                        <input type="number" class="form-control form-control-solid" id="id_flight_time" required name="flight_time">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 mb-10">
+                                        <label class="fs-5 fw-bold mb-3">Kategori</label>
+                                        <select name="kategori" id="kategori" class="form-control form-control-solid">
+                                            {% for i in kategoriler %}
+                                                <option value="{{i}}">{{i}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                                    <button type="button" id="add" class="btn btn-lg btn-primary float-right">
+                                        Kaydet
+                                        <span class="svg-icon svg-icon-3 ms-1 me-0">
+                                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                              <rect opacity="0.5" x="18" y="13" width="13" height="2" rx="1" transform="rotate(-180 18 13)" fill="black"></rect>
+                                              <path d="M15.4343 12.5657L11.25 16.75C10.8358 17.1642 10.8358 17.8358 11.25 18.25C11.6642 18.6642 12.3358 18.6642 12.75 18.25L18.2929 12.7071C18.6834 12.3166 18.6834 11.6834 18.2929 11.2929L12.75 5.75C12.3358 5.33579 11.6642 5.33579 11.25 5.75C10.8358 6.16421 10.8358 6.83579 11.25 7.25L15.4343 11.4343C15.7467 11.7467 15.7467 12.2533 15.4343 12.5657Z" fill="black"></path>
+                                           </svg>
+                                        </span>
+                                    </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block scripts %}
+    <script src="{% static 'js/ajax_add.js'%}"></script>
+{% endblock %}

@@ -1,0 +1,28 @@
+version: "3.9"
+services:
+  app:
+    build: .
+    volumes:
+      - .:/ihakirala
+    ports:
+      - 8000:8000
+    image: app:django
+    container_name: django_container
+    command: python manage.py runserver 0.0.0.0:8000
+  db:
+    image: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_DB=ihakirala
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=enes
+    container_name: postgres_db
+  some-service:
+    build: .
+    image: image_name:image_version
+    env_file:
+      - ./.env.dev
+
+volumes:
+  postgres_data:
