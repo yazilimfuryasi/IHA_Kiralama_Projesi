@@ -9,6 +9,8 @@ services:
     image: app:django
     container_name: django_container
     command: python manage.py runserver 0.0.0.0:8000
+    depends_on:
+      - db
   db:
     image: postgres
     volumes:
@@ -18,11 +20,6 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=enes
     container_name: postgres_db
-  some-service:
-    build: .
-    image: image_name:image_version
-    env_file:
-      - ./.env.dev
 
 volumes:
   postgres_data:

@@ -25,11 +25,11 @@ SECRET_KEY = 'django-insecure-q*ncdjmhenj9v&9(3(_jlsunn83k7$*2_oa4x*6-9@c5^s@5fy
 # SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = int(os.environ.get("DEBUG", default=0))
+DEBUG = True
+# DEBUG = int(os.environ.get("DEBUG", default=0))
 
-# ALLOWED_HOSTS = []
-ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
+ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
 
 
 # Application definition
@@ -86,10 +86,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'ihakirala',
-        'USER': os.environ.get("SQL_USER"),
-        'PASSWORD': os.environ.get("SQL_PASSWORD"),
-        'HOST': os.environ.get("SQL_HOST"),
-        'PORT': os.environ.get("SQL_POST"),
+        'USER': "postgres",
+        'PASSWORD': "enes",
+        'HOST': "db",
+        'PORT': 5432,
     }
 }
 
